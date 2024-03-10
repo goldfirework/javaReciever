@@ -10,6 +10,6 @@ public class Main {
 
         // Setter igang lyttingen
         new fun.jons.socket.reciever().ServerSocket(Integer.parseInt(args[0]));
-        new fun.jons.socket.reciever().ServerSocket(Integer.parseInt(args[1]));
+        //new fun.jons.socket.reciever().ServerSocket(Integer.parseInt(args[1]));
     }
 }

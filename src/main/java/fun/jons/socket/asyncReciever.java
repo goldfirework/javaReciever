@@ -7,7 +7,7 @@ import java.nio.channels.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
-public class asyncReciever {
+public class AsyncReciever {
 
     private AsynchronousServerSocketChannel serverChannel;
     private Future<AsynchronousSocketChannel> acceptResults;
@@ -15,11 +15,11 @@ public class asyncReciever {
 
 
 
-    public void asyncReciever(int port) {
+    public AsyncReciever() {
         try {
             serverChannel = AsynchronousServerSocketChannel.open();
 
-            serverChannel.bind(new InetSocketAddress("127.0.0.1", port));
+            serverChannel.bind(new InetSocketAddress("127.0.0.1", 25570));
 
             acceptResults = serverChannel.accept();
 
@@ -29,7 +29,7 @@ public class asyncReciever {
         }
     }
 
-    public void runserver(int port) {
+    public void runserver() {
         try {
             clientChannel = acceptResults.get();
 
@@ -66,11 +66,6 @@ public class asyncReciever {
         }catch (Exception e) {
             System.out.println("runServer fikk feil \n" + e.toString());
         }
-    }
-
-    public static void asyncRecieverMain(String args) {
-        asyncReciever server = new asyncReciever();
-        server.runserver(Integer.parseInt(args));
     }
 
 }
