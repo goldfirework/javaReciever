@@ -35,6 +35,9 @@ public class reciever {
                 ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
                 BufferedImage image = ImageIO.read(bais);
 
+                File outputfile = new File("bilde.jpg");
+                ImageIO.write(image, "jpg", outputfile);
+
                 System.out.println(port + " recieved!");
 
             }
